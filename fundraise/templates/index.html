@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../static/script.js"></script>
+    <title>Startup Investors Forum</title>
+</head>
+<body>
+    <header>
+        <h1>Startup Investors Forum</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/home">Home</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="startup-grid" id="startupGrid">
+            <!-- Existing Startup Tiles Go Here -->
+        </section>
+        <button id="addFormButton">Add Form</button>
+        <form id="newStartupForm" style="display: none">
+            <label for="country">Country:</label>
+            <input type="text" id="country" required><br>
+            
+            <label for="year">Year:</label>
+            <input type="number" id="year" required><br>
+
+            <label for="city">City:</label>
+            <input type="text" id="city" required><br>
+
+            <label for="mainCategory">Main Category:</label>
+            <input type="text" id="mainCategory" required><br>
+
+            <label for="fundingRounds">Funding Rounds:</label>
+            <input type="number" id="fundingRounds" required><br>
+
+            <label for="fundingFilled">Funding Filled:</label>
+            <input type="number" id="fundingFilled" required><br>
+
+            <button type="button" id="submitStartup">Submit</button>
+            <p>Success status: <span id="predicted_success"></span></p>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2023 Startup Investors Forum</p>
+    </footer>
+</body>
+</html>
