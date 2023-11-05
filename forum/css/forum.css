@@ -1,0 +1,104 @@
+/* Updated CSS styles with responsive design */
+
+/* Common styles for all screen sizes */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #3498db;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+.forum-container {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.user-info input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.message {
+    position: relative;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.message:hover {
+    background-color: #f2f2f2;
+    transform: scale(1.02);
+}
+
+.like-button {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 24px;
+    background-color: transparent;
+    border: none;
+    color: #f00;
+    cursor: pointer;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .forum-container {
+        padding: 10px;
+    }
+    input[type="text"] {
+        width: 100%;
+    }
+    .like-button {
+        right: 5px;
+    }
+}
+
+/* Responsive design for very small screens */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 28px;
+    }
+    .like-button {
+        font-size: 20px;
+    }
+}

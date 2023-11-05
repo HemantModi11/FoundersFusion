@@ -1,30 +1,34 @@
 from flask import Flask, render_template, request, jsonify
-import joblib
 
 app = Flask(__name__)
 
-# Load your model here (replace 'your_model.pkl' with the actual model filename)
-model = joblib.load('model.pkl')
+# Import your machine learning model (pickle model)
+import pickle
 
-@app.route('/home')
+# Load the pickled model
+with open('model.pkl', 'rb') as model_file:
+    model = pickle.load(model_file)
+
+@app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('index.html', predicted_value=None)
 
-@app.route("/predict", methods=["POST"])
+@app.route('/predict', methods=['POST'])
 def predict():
-    # Extract data from the form
-    country = request.form["country"]
-    year = request.form["year"]
-    city = request.form["city"]
-    main_category = request.form["mainCategory"]
-    funding_rounds = request.form["fundingRounds"]
-    funding_filled = request.form["fundingFilled"]
+    if request.method == 'POST':
+        # Get user inputs from the form
+        year = int(request.form['year'])
+        funding_rounds = int(request.form['fundingRounds'])
+        funding_filled = int(request.form['fundingFilled'])
+        country = request.form['country']
+        main_category = request.form['mainCategory']
 
-    # Make predictions using your model
-    input_data = [[year, city, main_category, funding_rounds, funding_filled, country]]
-    predicted_success = model.predict(input_data)[0]
+            # Pass all user inputs to the model for prediction
+        prediction = model.predict([[year, funding_rounds, funding_filled, country, main_category]])[0]
 
-    return jsonify(predicted_success=predicted_success)
+        print(prediction)
+        # Return the prediction as JSON
+        return render_template('index.html', predicted_value=prediction)
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True)

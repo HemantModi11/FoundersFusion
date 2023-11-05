@@ -172,20 +172,20 @@ body {
 		padding-right: 10px;
 	}
 
-	.location,
-	.price {
+	.tag,
+	.link {
 		font-weight: 600;
 		color: #355cc9;
 		grid-row: 1;
-		font-size: 0.86em;
+		font-size: 2em;
 	}
 
-	.location {
+	.tag {
 		grid-column: 1/3;
 		justify-self: left;
 	}
 
-	.price {
+	.link {
 		grid-column: 3/-1;
 		justify-self: right;
 	}

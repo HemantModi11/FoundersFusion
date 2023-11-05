@@ -18,19 +18,21 @@
         </ul>
     </nav>
     <main>
-        <section class="startup-grid" id="startupGrid">
-            <!-- Existing Startup Tiles Go Here -->
-        </section>
+        <!-- Add Form Button -->
         <button id="addFormButton">Add Form</button>
+
+        <!-- Container for Startup Cards -->
+        <div id="startupGrid" class="startup-grid">
+            <!-- Existing Startup Cards and dynamically added cards will go here -->
+        </div>
+
+        <!-- Startup Form -->
         <form id="newStartupForm" style="display: none">
             <label for="country">Country:</label>
             <input type="text" id="country" required><br>
-            
-            <label for="year">Year:</label>
-            <input type="number" id="year" required><br>
 
-            <label for="city">City:</label>
-            <input type="text" id="city" required><br>
+            <label for="year">Year:</label>
+            <input type="number" id="year" name="year" required><br>
 
             <label for="mainCategory">Main Category:</label>
             <input type="text" id="mainCategory" required><br>
@@ -41,9 +43,25 @@
             <label for="fundingFilled">Funding Filled:</label>
             <input type="number" id="fundingFilled" required><br>
 
+            
+
             <button type="button" id="submitStartup">Submit</button>
-            <p>Success status: <span id="predicted_success"></span></p>
+            
         </form>
+
+        <!-- Buttons to Show/Hide Lists -->
+        <button id="showCountryList">Show Country List</button>
+        <button id="showCategoryList">Show Category List</button>
+
+        <!-- Lists (Initially Hidden) -->
+        <ul id="countryList" class="list" style="display: none">
+            <!-- List of countries dynamically generated from JavaScript -->
+        </ul>
+        <ul id="categoryList" class="list" style="display: none">
+            <!-- List of main categories dynamically generated from JavaScript -->
+        </ul>
+
+        <p>Predicted Success Value: {{ predicted_value }}</p>
     </main>
     <footer>
         <p>&copy; 2023 Startup Investors Forum</p>
